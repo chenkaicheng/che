@@ -305,7 +305,16 @@ export class WorkspaceDetailsController {
   }
 
   /**
-   * Returns workspace details sections (tabs, example - projects)
+   * Returns workspace details pages (tabs, example - projects)
+   *
+   * @returns {*}
+   */
+  getPages(): any {
+    return this.workspaceDetailsService.getPages();
+  }
+
+  /**
+   * Returns workspace details section.
    *
    * @returns {*}
    */
