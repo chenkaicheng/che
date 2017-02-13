@@ -177,9 +177,7 @@ export class WorkspaceDetailsController {
       };
       this.copyWorkspaceDetails = angular.copy(this.workspaceDetails);
       this.cheNamespaceRegistry.fetchNamespaces().then(() => {
-        if (this.getNamespaces().length) {
-          this.namespaceId = this.getNamespaces()[0].id;
-        }
+        this.namespaceId = this.$location.search().namespace || (this.getNamespaces().length ? this.getNamespaces()[0].id : undefined);
       });
     }
     this.newName = this.workspaceName;
