@@ -9,7 +9,7 @@
  *   Codenvy, S.A. - initial API and implementation
  *******************************************************************************/
 
-var gutil = require('gulp-util');
+var gutil = require('../target/dependency/node_modules/gulp-util');
 
 /**
  *  The main paths of your project handle these with care
@@ -22,13 +22,13 @@ exports.paths = {
 };
 
 /**
- *  Wiredep is the lib which inject bower dependencies in your project
+ *  Wiredep is the lib which inject dependencies in your project
  *  Mainly used to inject script tags in the index.html but also used
  *  to inject css preprocessor deps and js files in karma
  */
 exports.wiredep = {
   exclude: [/bootstrap\.js/, /bootstrap\.css/, /bootstrap\.css/, /foundation\.css/],
-  directory: 'bower_components'
+  directory: 'target/dependency/bower_components'
 };
 
 

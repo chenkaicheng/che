@@ -11,11 +11,11 @@
 
 'use strict';
 
-var path = require('path');
-var gulp = require('gulp');
+var path = require('../target/dependency/node_modules/path');
+var gulp = require('../target/dependency/node_modules/gulp');
 var conf = require('./conf');
 
-var browserSync = require('browser-sync');
+var browserSync = require('../target/dependency/node_modules/browser-sync');
 
 function isOnlyChange(event) {
   return event.type === 'changed';
@@ -23,7 +23,7 @@ function isOnlyChange(event) {
 
 gulp.task('watch', ['scripts:watch', 'inject'], function () {
 
-  gulp.watch([path.join(conf.paths.src, '/*.html'), 'bower.json'], ['inject']);
+  gulp.watch([path.join(conf.paths.src, '/*.html')], ['inject']);
 
   gulp.watch([
     path.join(conf.paths.src, '/app/**/*.css'),

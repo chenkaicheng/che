@@ -23,8 +23,7 @@ export class AdminPluginsCtrl {
    * Default constructor
    * @ngInject for Dependency injection
    */
-  constructor($scope, $q, $mdDialog, $interval, $location, $anchorScroll, cheNotification, cheAdminPlugins) {
-    this.$scope = $scope;
+  constructor($q, $mdDialog, $interval, $location, $anchorScroll, cheNotification, cheAdminPlugins) {
     this.$q = $q;
     this.$mdDialog = $mdDialog;
     this.$interval = $interval;

@@ -11,14 +11,14 @@
 
 'use strict';
 
-var path = require('path');
-var gulp = require('gulp');
+var path = require('../target/dependency/node_modules/path');
+var gulp = require('../target/dependency/node_modules/gulp');
 var conf = require('./conf');
 
-var browserSync = require('browser-sync');
-var webpack = require('webpack-stream');
+var browserSync = require('../target/dependency/node_modules/browser-sync');
+var webpack = require('../target/dependency/node_modules/webpack-stream');
 
-var $ = require('gulp-load-plugins')();
+var util = require('../target/dependency/node_modules/util');
 
 function webpackWrapper(watch, test, callback) {
   var webpackOptions = {
@@ -39,8 +39,8 @@ function webpackWrapper(watch, test, callback) {
     if(err) {
       conf.errorHandler('Webpack')(err);
     }
-    $.util.log(stats.toString({
-      colors: $.util.colors.supportsColor,
+    util.log(stats.toString({
+//      colors: util.colors.supportsColor,
       chunks: false,
       hash: false,
       version: false

@@ -10,9 +10,9 @@
  *******************************************************************************/
 
 'use strict';
-var minimist = require('minimist');
-var url = require('url');
-var proxy = require('proxy-middleware');
+var minimist = require('../target/dependency/node_modules/minimist');
+var url = require('../target/dependency/node_modules/url');
+var proxy = require('../target/dependency/node_modules/proxy-middleware');
 
 
 var serverOptions = {
@@ -24,7 +24,7 @@ var options = minimist(process.argv.slice(2), serverOptions);
 
 var patterns = ['/api', '/ext', '/ws', '/datasource', '/java-ca', '/im', '/che', '/admin'];
 
-var proxies = []
+var proxies = [];
 
 
 patterns.forEach(function(pattern) {

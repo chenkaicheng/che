@@ -11,14 +11,14 @@
 
 'use strict';
 
-var path = require('path');
-var gulp = require('gulp');
+var path = require('../target/dependency/node_modules/path');
+var gulp = require('../target/dependency/node_modules/gulp');
 var conf = require('./conf');
 
-var $ = require('gulp-load-plugins')();
+var inject = require('../target/dependency/node_modules/gulp-inject');
 
-var wiredep = require('wiredep').stream;
-var _ = require('lodash');
+var wiredep = require('../target/dependency/node_modules/wiredep').stream;
+var _ = require('../target/dependency/node_modules/lodash');
 
 gulp.task('inject', ['outputcolors', 'proxySettings', 'scripts', 'styles'], function () {
   var injectStyles = gulp.src([
@@ -36,8 +36,8 @@ gulp.task('inject', ['outputcolors', 'proxySettings', 'scripts', 'styles'], func
   };
 
   return gulp.src(path.join(conf.paths.src, '/*.html'))
-    .pipe($.inject(injectStyles, injectOptions))
-    .pipe($.inject(injectScripts, injectOptions))
+    .pipe(inject(injectStyles, injectOptions))
+    .pipe(inject(injectScripts, injectOptions))
     .pipe(wiredep(_.extend({}, conf.wiredep)))
     .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve')));
 });

@@ -11,23 +11,25 @@
 
 'use strict';
 
-var path = require('path');
-var gulp = require('gulp');
+var path = require('../target/dependency/node_modules/path');
+var gulp = require('../target/dependency/node_modules/gulp');
 var conf = require('./conf');
 
-var $ = require('gulp-load-plugins')();
+var iconfont = require('../target/dependency/node_modules/gulp-iconfont');
+var iconfontCss = require('../target/dependency/node_modules/gulp-iconfont-css');
+var replace = require('../target/dependency/node_modules/gulp-replace');
 
 gulp.task('generatesvgfonts', function() {
 
   var sources = [ path.join(conf.paths.src, '/assets/svg/type-blank.svg'), path.join(conf.paths.src, '/assets/svg/*.svg') ];
 
   return gulp.src(sources)
-    .pipe($.iconfontCss({
+    .pipe(iconfontCss({
       fontName: 'che',
       targetPath: '../styles/che-font.css',
       fontPath: '../fonts/'
     }))
-    .pipe($.iconfont({
+    .pipe(iconfont({
       fontName: 'che',
       appendCodepoints: false,
       normalize: true,
@@ -42,8 +44,8 @@ gulp.task('generatesvgfonts', function() {
 
 gulp.task('svgfonts', ['generatesvgfonts'], function () {
   return gulp.src(['src/assets/styles/che-font.css'])
-    .pipe($.replace('icon:before', 'chefont:before'))
-    .pipe($.replace('.icon-', '.cheico-'))
+    .pipe(replace('icon:before', 'chefont:before'))
+    .pipe(replace('.icon-', '.cheico-'))
     .pipe(gulp.dest('src/assets/styles'));
 
 });

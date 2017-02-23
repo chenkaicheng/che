@@ -101,7 +101,7 @@ initModule.config(['$routeProvider', 'ngClipProvider', ($routeProvider, ngClipPr
     redirectTo: '/workspaces'
   });
   // add .swf path location using ngClipProvider
-  let ngClipProviderPath = DEV ? 'bower_components/zeroclipboard/dist/ZeroClipboard.swf' : 'assets/zeroclipboard/ZeroClipboard.swf';
+  let ngClipProviderPath = DEV ? 'target/dependency/bower_components/zeroclipboard/dist/ZeroClipboard.swf' : 'assets/zeroclipboard/ZeroClipboard.swf';
   ngClipProvider.setPath(ngClipProviderPath);
 }]);
 

@@ -6,7 +6,8 @@
 
   "exclude": [
     "node_modules",
-    "bower_components"
+    "target/dependency/node_modules",
+    "target/dependency/bower_components"
   ]
 
 }

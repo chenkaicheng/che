@@ -11,7 +11,7 @@
 
 'use strict';
 
-var gulp = require('gulp');
+var gulp = require('../target/dependency/node_modules/gulp');
 
 
 

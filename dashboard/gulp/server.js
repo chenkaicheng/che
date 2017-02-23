@@ -11,15 +11,15 @@
 
 'use strict';
 
-var path = require('path');
-var gulp = require('gulp');
+var path = require('../target/dependency/node_modules/path');
+var gulp = require('../target/dependency/node_modules/gulp');
 var conf = require('./conf');
 
-var browserSync = require('browser-sync');
-var browserSyncSpa = require('browser-sync-spa');
+var browserSync = require('../target/dependency/node_modules/browser-sync');
+var browserSyncSpa = require('../target/dependency/node_modules/browser-sync-spa');
 
 var middleware = require('./proxy');
-var util = require('util');
+var util = require('../target/dependency/node_modules/util');
 
 
 function browserSyncInit(baseDir, browser) {
@@ -28,7 +28,7 @@ function browserSyncInit(baseDir, browser) {
   var routes = null;
   if(baseDir === conf.paths.src || (util.isArray(baseDir) && baseDir.indexOf(conf.paths.src) !== -1)) {
     routes = {
-      '/bower_components': 'bower_components'
+      '/target/dependency/bower_components': 'target/dependency/bower_components'
     };
   }
 

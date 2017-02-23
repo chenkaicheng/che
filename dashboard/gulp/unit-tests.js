@@ -11,11 +11,11 @@
 
 'use strict';
 
-var path = require('path');
-var gulp = require('gulp');
+var path = require('../target/dependency/node_modules/path');
+var gulp = require('../target/dependency/node_modules/gulp');
 var conf = require('./conf');
 
-var karma = require('karma');
+var karma = require('../target/dependency/node_modules/karma');
 
 var pathSrcHtml = [
   path.join(conf.paths.src, '/**/*.html')
@@ -50,7 +50,7 @@ function runTests (singleRun, done) {
 
   var server = new karma.Server(localConfig, function(failCount) {
     done(failCount ? new Error("Failed " + failCount + " tests.") : null);
-  })
+  });
   server.start();
 }
 

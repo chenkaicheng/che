@@ -11,20 +11,21 @@
 
 'use strict';
 
-var path = require('path');
-var gulp = require('gulp');
+var path = require('../target/dependency/node_modules/path');
+var gulp = require('../target/dependency/node_modules/gulp');
 var conf = require('./conf');
 
-var $ = require('gulp-load-plugins')();
+var iconfont = require('../target/dependency/node_modules/gulp-iconfont');
+var iconfontCss = require('../target/dependency/node_modules/gulp-iconfont-css');
 
 gulp.task('material-svgfonts', function() {
-  return gulp.src('bower_components/material-design-icons/**/production/*')
-    .pipe($.iconfontCss({
+  return gulp.src('target/dependency/bower_components/material-design-icons/**/production/*')
+    .pipe(iconfontCss({
       fontName: 'material-design',
       targetPath: '../styles/material-design.css',
       fontPath: '../fonts/'
     }))
-    .pipe($.iconfont({
+    .pipe(iconfont({
       fontName: 'material-design',
       appendCodepoints: false,
       normalize: true,
