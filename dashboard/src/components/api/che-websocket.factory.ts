@@ -38,7 +38,7 @@ export class CheWebsocket {
 
     if (inDevMode) {
       // it handle then http and https
-      wsUrl = proxySettings.replace('http', 'ws') + '/api/ws';
+      wsUrl =  'wss://a1.codenvy-stg.com/api/ws';
     } else {
 
       var wsProtocol;
